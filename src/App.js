@@ -25,9 +25,9 @@ class App extends Component {
         .then((data) => {
           let pokemonList = this.state.pokemonInfo;
           pokemonList.push(data);
-          this.setState = {
+          this.setState({
             pokemonInfo: pokemonList
-          }
+          })
         })
     }
   }

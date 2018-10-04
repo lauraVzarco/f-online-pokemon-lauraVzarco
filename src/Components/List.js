@@ -14,7 +14,7 @@ class List extends Component {
                         key={index}
                         name={pokemon.name}
                         image={pokemon.sprites.front_default}
-                        type={pokemon.type.map((types) =>
+                        type={pokemon.types.map((types) =>
                             types.type.name)}
                     />
                 </li>
