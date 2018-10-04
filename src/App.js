@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props) {
     super();
     this.state = {
-
+      pokemonInfo: []
     }
     this.fecthPokeApi = this.fetchPokeApi.bind(this);
   }
@@ -15,14 +15,20 @@ class App extends Component {
 
   //Poke API fecth
   componentDidMount() {
-    fetchPokeApi()
+    this.fetchPokeApi()
   }
 
   fetchPokeApi() {
-    fetch('http://pokeapi.salestock.net/api/v2/')
-      .then((response) => response.json())
-      .then(json)
-
+    for (let id = 1; id < 25; id++) {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          this.setState = {
+            pokemonInfo: data
+          }
+        })
+    }
   }
 
   render() {
