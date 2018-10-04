@@ -23,9 +23,10 @@ class App extends Component {
       fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          let pokemonList = this.state.pokemonInfo;
+          pokemonList.push(data);
           this.setState = {
-            pokemonInfo: data
+            pokemonInfo: pokemonList
           }
         })
     }
@@ -35,7 +36,8 @@ class App extends Component {
     return (
       <div>
         <SearchBox />
-        <List />
+        <List
+          pokemonInfo={this.state.pokemonInfo} />
       </div>
     );
   }

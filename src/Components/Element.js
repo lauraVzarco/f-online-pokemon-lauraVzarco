@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 
-class element extends Component {
+class Element extends Component {
 
     render() {
         return (
             <div>
-                <li>
-                    <div>
-                        img
+                <div>
+                    <img src={this.props.image} alt="pokemon sprite" />
                     <div>Pokeid</div>
-                    </div>
-                    <div>
-                        <div>Pokename</div>
-                        <div>Poketype</div>
-                    </div>
-                </li>
+                </div>
+                <div>
+                    <div>{this.props.name}</div>
+                    <div>{this.props.type}</div>
+                </div>
             </div>
         );
     }
 }
 
-export default element;
+
+export default Element;
