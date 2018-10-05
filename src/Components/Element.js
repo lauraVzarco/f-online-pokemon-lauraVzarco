@@ -7,7 +7,7 @@ class Element extends Component {
             <div>
                 <div>
                     <img src={this.props.image} alt="pokemon sprite" />
-                    <div>Pokeid</div>
+                    <div>{this.props.id}</div>
                 </div>
                 <div>
                     <div>{this.props.name}</div>

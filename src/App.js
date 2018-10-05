@@ -7,9 +7,11 @@ class App extends Component {
   constructor(props) {
     super();
     this.state = {
-      pokemonInfo: []
+      pokemonInfo: [],
+      filteredList: ''
     }
     this.fecthPokeApi = this.fetchPokeApi.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
   }
 
 
@@ -19,7 +21,7 @@ class App extends Component {
   }
 
   fetchPokeApi() {
-    for (let id = 1; id < 25; id++) {
+    for (let id = 1; id <= 25; id++) {
       fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
         .then((response) => response.json())
         .then((data) => {
@@ -32,12 +34,22 @@ class App extends Component {
     }
   }
 
+  //Filtrar pokemon
+  handleFilter(e) {
+    this.setState({
+      filteredList: e.target.value
+    })
+  }
+
   render() {
+    const filteredPokeList = this.state.pokemonInfo.filter((pokemon) => pokemon.name.toLowerCase().includes(this.state.filteredList.toLowerCase()))
     return (
       <div>
-        <SearchBox />
+        <SearchBox
+          value={this.state.filteredList}
+          onChange={this.handleFilter} />
         <List
-          pokemonInfo={this.state.pokemonInfo} />
+          list={filteredPokeList} />
       </div>
     );
   }
