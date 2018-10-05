@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SearchBox from './Components/SearchBox';
 import List from './Components/List';
-
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -44,13 +44,15 @@ class App extends Component {
   render() {
     const filteredPokeList = this.state.pokemonInfo.filter((pokemon) => pokemon.name.toLowerCase().includes(this.state.filteredList.toLowerCase()))
     return (
-      <div>
+      <main>
+        <div className='blackTriangle1'></div>
+        <div className='blackTriangle2'></div>
         <SearchBox
           value={this.state.filteredList}
           onChange={this.handleFilter} />
         <List
           list={filteredPokeList} />
-      </div>
+      </main>
     );
   }
 }
