@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #FFE62C;
+}
+
+.pikachuParts {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blackTriangle1 {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 100px 100px 0 0;
+    border-color: black transparent transparent transparent;
+    background-position: left top;
+}
+
+.blackTriangle2 {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 100px 100px 0;
+    border-color: transparent black transparent transparent;
+}
+
+
+
+.redCircle1{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 100px 100px 0;
+    border-color: transparent red transparent transparent;
+    border-radius: 0 100px 0 0;
+
+}
+
+.redCircle2{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 100px 100px 0 0;
+    border-color: red transparent transparent transparent;
+    border-radius: 100px 0 0 0;
+}

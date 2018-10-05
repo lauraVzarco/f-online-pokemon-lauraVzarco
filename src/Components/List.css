@@ -1,0 +1,8 @@
+.pokemonList {
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+
+.pokemonInfo {
+  display: flex;
+  flex-direction: column;
+  margin: auto; }

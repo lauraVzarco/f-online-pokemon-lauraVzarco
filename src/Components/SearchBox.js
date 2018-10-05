@@ -4,7 +4,10 @@ import './SearchBox.css';
 class SearchBox extends Component {
   render() {
     return (
-      <input type='text'
+      <input
+        placeholder='Filtra Pokémons por nombre...'
+        className='inputFilter'
+        type='text'
         value={this.props.value}
         onChange={this.props.onChange}
       />

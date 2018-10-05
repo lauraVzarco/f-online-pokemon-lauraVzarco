@@ -11,7 +11,7 @@ class List extends Component {
             .sort((a, b) => a.id - b.id)
             .map((pokemon) => {
                 return (
-                    <li key={pokemon.id}>
+                    <li key={pokemon.id} className='pokemonInfo'>
                         <Element
                             list={this.props.list}
                             id={pokemon.id}
@@ -25,7 +25,7 @@ class List extends Component {
                 )
             });
         return (
-            <ul>
+            <ul class='pokemonList'>
                 {pokeList}
             </ul>
         )

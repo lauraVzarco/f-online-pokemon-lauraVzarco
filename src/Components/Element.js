@@ -12,7 +12,8 @@ class Element extends Component {
                 </div>
                 <div>
                     <div>{this.props.name}</div>
-                    <div>{this.props.type}</div>
+                    <div>{this.props.type.map((types, index) =>
+                        <span key={index}> {types} </span>)}</div>
                 </div>
             </div>
         );
