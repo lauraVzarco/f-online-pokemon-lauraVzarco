@@ -45,13 +45,19 @@ class App extends Component {
     const filteredPokeList = this.state.pokemonInfo.filter((pokemon) => pokemon.name.toLowerCase().includes(this.state.filteredList.toLowerCase()))
     return (
       <main>
-        <div className='blackTriangle1'></div>
-        <div className='blackTriangle2'></div>
+        <div className='pikachuParts'>
+          <div className='blackTriangle1'></div>
+          <div className='blackTriangle2'></div>
+        </div>
         <SearchBox
           value={this.state.filteredList}
           onChange={this.handleFilter} />
         <List
           list={filteredPokeList} />
+        <div className='pikachuParts'>
+          <div className='redCircle1'></div>
+          <div className='redCircle2'></div>
+        </div>
       </main>
     );
   }
