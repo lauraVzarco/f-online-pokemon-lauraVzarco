@@ -63,7 +63,7 @@ class App extends Component {
               </div>
             } />
           <Route
-            path='/poke/:id'
+            path='/poke/id'
             render={(props) => {
               const id = props.match.params.id;
               const pokemon = this.state.list.find((poke) => poke.id === id)
