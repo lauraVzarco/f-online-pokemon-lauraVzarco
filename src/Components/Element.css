@@ -26,7 +26,8 @@
   font-size: 20px;
   font-weight: 700;
   text-transform: capitalize;
-  padding-top: 5px; }
+  padding-top: 5px;
+  color: black; }
 
 .pokeType {
   display: flex;

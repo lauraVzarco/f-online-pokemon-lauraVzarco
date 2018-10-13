@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import SearchBox from './Components/SearchBox';
 import List from './Components/List';
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import Pokemon from './Components/Pokemon';
 
 class App extends Component {
   constructor(props) {
@@ -45,19 +47,40 @@ class App extends Component {
     const filteredPokeList = this.state.pokemonInfo.filter((pokemon) => pokemon.name.toLowerCase().includes(this.state.filteredList.toLowerCase()))
     return (
       <main>
-        <div className='pikachuParts'>
+        <header className='pikachuParts'>
           <div className='blackTriangle1'></div>
           <div className='blackTriangle2'></div>
-        </div>
-        <SearchBox
-          value={this.state.filteredList}
-          onChange={this.handleFilter} />
-        <List
-          list={filteredPokeList} />
-        <div className='pikachuParts'>
+        </header>
+        <Switch>
+          <Route
+            exact path='/'
+            render={() =>
+              <div>
+                <SearchBox
+                  value={this.state.filteredList}
+                  onChange={this.handleFilter} />
+                <List list={filteredPokeList} />
+              </div>
+            } />
+          <Route
+            path='/poke/:id'
+            render={(props) => {
+              const id = props.match.params.id;
+              const pokemon = this.state.list.find((poke) => poke.id === id)
+              return (
+                <Pokemon
+                  weight={pokemon.weight}
+                  height={pokemon.height}
+                  pokemDefault={pokemon.sprites.front_default}
+                  pokemonShiny={pokemon.sprites.front_shiny}
+                  abilities={pokemon.abilities.map((ab) => ab.abilities.name)} />
+              )
+            }} />
+        </Switch>
+        <footer className='pikachuParts'>
           <div className='redCircle1'></div>
           <div className='redCircle2'></div>
-        </div>
+        </footer>
       </main>
     );
   }
