@@ -27,7 +27,7 @@ class List extends Component {
                 )
             });
         return (
-            <ul class='pokemonList'>
+            <ul className='pokemonList'>
                 {pokeList}
             </ul>
         )

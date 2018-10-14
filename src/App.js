@@ -63,17 +63,16 @@ class App extends Component {
               </div>
             } />
           <Route
-            path='/poke/id'
+            path='/poke/:id'
             render={(props) => {
               const id = props.match.params.id;
-              const pokemon = this.state.list.find((poke) => poke.id === id)
+              const pokemon = this.state.pokemonInfo.find((poke) => poke.id === id);
               return (
                 <Pokemon
-                  weight={pokemon.weight}
-                  height={pokemon.height}
-                  pokemDefault={pokemon.sprites.front_default}
-                  pokemonShiny={pokemon.sprites.front_shiny}
-                  abilities={pokemon.abilities.map((ab) => ab.abilities.name)} />
+                  info={this.state.pokemonInfo}
+                  list={this.state.filteredList}
+                  poke={pokemon}
+                />
               )
             }} />
         </Switch>
