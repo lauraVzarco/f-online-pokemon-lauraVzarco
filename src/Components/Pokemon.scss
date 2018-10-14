@@ -1,0 +1,20 @@
+.pokemon-details{
+    width: 100vw;
+    height:  100vh;
+}
+
+.pokemon-name {
+    font-size: 35px;
+    font-weight: 700;
+    text-transform: capitalize;
+    padding-top: 5px;
+    color: black;
+    text-align: center;
+}
+
+.pokemon-colors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 25%;
+    margin-top: 25px;
+}

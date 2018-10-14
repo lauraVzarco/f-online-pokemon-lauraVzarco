@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +33,13 @@ body {
   border-style: solid;
   border-width: 0 100px 100px 0;
   border-color: transparent red transparent transparent;
-  border-radius: 0 100px 0 0; }
+  border-radius: 0 100px 0 0;
+  position: absolute;
+  /*El div será ubicado con relación a la pantalla*/
+  left: 0px;
+  /*A la derecha deje un espacio de 0px*/
+  bottom: 0px;
+  /*Abajo deje un espacio de 0px*/ }
 
 .redCircle2 {
   width: 0;
@@ -40,4 +47,10 @@ body {
   border-style: solid;
   border-width: 100px 100px 0 0;
   border-color: red transparent transparent transparent;
-  border-radius: 100px 0 0 0; }
+  border-radius: 100px 0 0 0;
+  position: absolute;
+  /*El div será ubicado con relación a la pantalla*/
+  right: 0px;
+  /*A la izquierda deje un espacio de 0px*/
+  bottom: 0px;
+  /*Abajo deje un espacio de 0px*/ }

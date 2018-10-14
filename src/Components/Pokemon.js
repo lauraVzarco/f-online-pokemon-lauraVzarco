@@ -8,12 +8,21 @@ class Pokemon extends Component {
         const pokemon = this.props.pokemon;
         console.log(pokemon.abilities)
         return (
-            <div>
-                <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-                <div>Forma Shiny</div>
-                <img src={pokemon.sprites.front_shiny} alt={pokemon.name} />
-                <div>Forma normal</div>
-                <h2>{pokemon.name}</h2>
+            <div className='pokemon-details'>
+                <h2 className='pokemon-name'>{pokemon.name}</h2>
+                <div className='pokemon-colors'>
+                    <div>
+                        <img
+                            src={pokemon.sprites.front_default}
+                            alt={pokemon.name} />
+                        <div>Forma normal</div></div>
+                    <div>
+                        <img
+                            src={pokemon.sprites.front_shiny}
+                            alt={pokemon.name} />
+                        <div>Forma shiny</div>
+                    </div>
+                </div>
                 <div>Peso: {pokemon.weight} </div>
                 <div>Altura: {pokemon.height}</div>
                 <div>Habilidades:
@@ -38,10 +47,4 @@ class Pokemon extends Component {
     }
 }
 
-// name={pokemon.name}
-// weight={pokemon.weight}
-// height={pokemon.height}
-// pokemDefault={pokemon.sprites.front_default}
-// pokemonShiny={pokemon.sprites.front_shiny}
-// abilities={pokemon.abilities.map((ab) => ab.abilities.name)}
 export default Pokemon

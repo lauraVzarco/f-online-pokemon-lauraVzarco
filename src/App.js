@@ -11,14 +11,17 @@ class App extends Component {
     this.state = {
       pokemonInfo: [],
       filteredList: '',
+      pokemonEvo: []
     }
     this.fecthPokeApi = this.fetchPokeApi.bind(this)
     this.handleFilter = this.handleFilter.bind(this)
+    this.fetchPokeEvo = this.fetchPokeEvo.bind(this)
   }
 
-  //Poke API fecth
+  //Poke API fecth de datos y evolución
   componentDidMount() {
     this.fetchPokeApi()
+    this.fetchPokeEvo()
   }
 
   fetchPokeApi() {
@@ -35,12 +38,29 @@ class App extends Component {
     }
   }
 
+  fetchPokeEvo() {
+    for (let id = 1; id <= 25; id++) {
+      fetch(`https://pokeapi.co/api/v2/evolution-chain/${id}/`)
+        .then(response => response.json())
+        .then(data => {
+          let pokemonEvoList = this.state.pokemonEvo
+          pokemonEvoList.push(data)
+          console.log(pokemonEvoList)
+          this.setState({
+            pokemonEvo: pokemonEvoList
+          })
+        })
+    }
+  }
+
   //Filtrar pokemon
   handleFilter(e) {
     this.setState({
       filteredList: e.target.value,
     })
   }
+
+  //renderizar pokemon list
 
   render() {
     const filteredPokeList = this.state.pokemonInfo.filter(pokemon =>
