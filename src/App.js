@@ -84,7 +84,9 @@ class App extends Component {
                   value={this.state.filteredList}
                   onChange={this.handleFilter}
                 />
-                <List list={filteredPokeList} />
+                <List
+                  list={filteredPokeList}
+                  evolve={this.state.pokemonEvo} />
               </div>
             )}
           />
