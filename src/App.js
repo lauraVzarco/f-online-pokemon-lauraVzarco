@@ -1,21 +1,20 @@
-import React, { Component } from "react";
-import SearchBox from './Components/SearchBox';
-import List from './Components/List';
-import './App.css';
-import { Route, Switch } from 'react-router-dom';
-import Pokemon from './Components/Pokemon';
+import React, { Component } from 'react'
+import SearchBox from './Components/SearchBox'
+import List from './Components/List'
+import './App.css'
+import { Route, Switch } from 'react-router-dom'
+import Pokemon from './Components/Pokemon'
 
 class App extends Component {
   constructor(props) {
-    super();
+    super()
     this.state = {
       pokemonInfo: [],
-      filteredList: ''
+      filteredList: '',
     }
-    this.fecthPokeApi = this.fetchPokeApi.bind(this);
-    this.handleFilter = this.handleFilter.bind(this);
+    this.fecthPokeApi = this.fetchPokeApi.bind(this)
+    this.handleFilter = this.handleFilter.bind(this)
   }
-
 
   //Poke API fecth
   componentDidMount() {
@@ -25,12 +24,12 @@ class App extends Component {
   fetchPokeApi() {
     for (let id = 1; id <= 25; id++) {
       fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-        .then((response) => response.json())
-        .then((data) => {
-          let pokemonList = this.state.pokemonInfo;
-          pokemonList.push(data);
+        .then(response => response.json())
+        .then(data => {
+          let pokemonList = this.state.pokemonInfo
+          pokemonList.push(data)
           this.setState({
-            pokemonInfo: pokemonList
+            pokemonInfo: pokemonList,
           })
         })
     }
@@ -39,50 +38,59 @@ class App extends Component {
   //Filtrar pokemon
   handleFilter(e) {
     this.setState({
-      filteredList: e.target.value
+      filteredList: e.target.value,
     })
   }
 
   render() {
-    const filteredPokeList = this.state.pokemonInfo.filter((pokemon) => pokemon.name.toLowerCase().includes(this.state.filteredList.toLowerCase()))
+    const filteredPokeList = this.state.pokemonInfo.filter(pokemon =>
+      pokemon.name
+        .toLowerCase()
+        .includes(this.state.filteredList.toLowerCase()),
+    )
     return (
       <main>
-        <header className='pikachuParts'>
-          <div className='blackTriangle1'></div>
-          <div className='blackTriangle2'></div>
+        <header className="pikachuParts">
+          <div className="blackTriangle1" />
+          <div className="blackTriangle2" />
         </header>
         <Switch>
           <Route
-            exact path='/'
-            render={() =>
+            exact
+            path="/"
+            render={() => (
               <div>
                 <SearchBox
                   value={this.state.filteredList}
-                  onChange={this.handleFilter} />
+                  onChange={this.handleFilter}
+                />
                 <List list={filteredPokeList} />
               </div>
-            } />
+            )}
+          />
           <Route
-            path='/poke/:id'
-            render={(props) => {
-              const id = props.match.params.id;
-              const pokemon = this.state.pokemonInfo.find((poke) => poke.id === id);
+            path="/poke/:id"
+            render={props => {
+              const id = props.match.params.id
+              const pokemon = this.state.pokemonInfo.find(
+                poke => poke.id === Number(id),
+              )
               return (
                 <Pokemon
-                  info={this.state.pokemonInfo}
-                  list={this.state.filteredList}
-                  poke={pokemon}
+                  pokemon={pokemon}
                 />
               )
-            }} />
+            }}
+          />
         </Switch>
-        <footer className='pikachuParts'>
-          <div className='redCircle1'></div>
-          <div className='redCircle2'></div>
+        <footer className="pikachuParts">
+          <div className="redCircle1" />
+          <div className="redCircle2" />
         </footer>
       </main>
-    );
+    )
   }
 }
 
-export default App;
+export default App
+

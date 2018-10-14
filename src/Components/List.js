@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 class List extends Component {
     render() {
-        console.log(this.props.list, 'me quiero morir')
         //Map en cada LI para mostrar las infos de las APIS una a una 
         const pokeList = this.props.list
             .sort((a, b) => a.id - b.id)
