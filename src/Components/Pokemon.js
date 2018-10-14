@@ -10,7 +10,9 @@ class Pokemon extends Component {
         return (
             <div>
                 <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+                <div>Forma Shiny</div>
                 <img src={pokemon.sprites.front_shiny} alt={pokemon.name} />
+                <div>Forma normal</div>
                 <h2>{pokemon.name}</h2>
                 <div>Peso: {pokemon.weight} </div>
                 <div>Altura: {pokemon.height}</div>
@@ -19,15 +21,10 @@ class Pokemon extends Component {
                         {(pokemon.abilities.map((pokemonAbilities) => {
                             const {
                                 ability,
-                                slot
+                                index
                             } = pokemonAbilities;
                             return (
-                                <li
-                                    key={slot}
-                                    className="pokemon-detail-abilities-item"
-                                >
-                                    {ability.name}
-                                </li>
+                                <li key={index}> {ability.name} </li>
                             );
                         }))
                         }
